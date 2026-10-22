@@ -1,11 +1,7 @@
 <mvc:View xmlns:form="sap.ui.layout.form"
           xmlns:f="sap.f"
-          xmlns:feeds="sap.viz.ui5.controls.common.feeds"
           xmlns:layout="sap.ui.layout"
-          xmlns:data="sap.viz.ui5.data"
-          xmlns:controls="sap.viz.ui5.controls"
           xmlns:statusindicator="sap.suite.ui.commons.statusindicator"
-          xmlns:chart="sap.chart"
           xmlns:commons="sap.suite.ui.commons"
           xmlns:core="sap.ui.core"
           xmlns:mvc="sap.ui.core.mvc"
@@ -60,7 +56,7 @@
 					<commons:ChartContainerContent icon="sap-icon://flight" title="{i18n>ChartTitle}" >
 						<commons:content >
 							<controls:VizFrame id="vizFrame"  renderComplete="onVizFrameLoaded"
-                                               vizProperties="{ 
+											   vizProperties="{ 
                                                         general: { background: { color: '#fff9e7' } },
                                                         plotArea: { background: { color: '#fdebb5' } }
                                                                    }"
