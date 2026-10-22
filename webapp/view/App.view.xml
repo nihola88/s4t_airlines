@@ -55,7 +55,7 @@
 					<ImageContent src="sap-icon://person-placeholder"/>
 				</TileContent>
 			</GenericTile>
-			<commons:ChartContainer showFullScreen="false" title="{i18n>ChartTitle}" autoAdjustHeight="true"  >
+			<!--<commons:ChartContainer showFullScreen="false" title="{i18n>ChartTitle}" autoAdjustHeight="true"  >
 				<commons:content>
 					<commons:ChartContainerContent icon="sap-icon://flight" title="{i18n>ChartTitle}" >
 						<commons:content >
@@ -85,9 +85,6 @@
 											<data:DimensionDefinition name="Flight"
 											                          value="{Connid}"/>
 										</data:dimensions>
-										<!-- <data:dimensions>
-                                                    <data:DimensionDefinition name="Country" value="{Countryfr}"></data:DimensionDefinition>
-                                                </data:dimensions> -->
 										<data:measures>
 											<data:MeasureDefinition name="SeatsOcc"
 											                        value="{PercOccupied}"
@@ -110,7 +107,6 @@
 									                uid="categoryAxis"
 									                type="Dimension"
 									                values="Flight"/>
-									<!-- <feeds:FeedItem id='valueCategoryCountry' uid="color" type="Dimension" values="Country" /> -->
 									<feeds:FeedItem id='valueAxisFeed'
 									                uid="valueAxis"
 									                type="Measure"
@@ -124,7 +120,7 @@
 						</commons:content>
 					</commons:ChartContainerContent>
 				</commons:content>
-			</commons:ChartContainer>
+			</commons:ChartContainer>-->
 		</Page>
 	</App>
 </mvc:View>
