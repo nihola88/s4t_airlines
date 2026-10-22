@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: s4tairlines.s4tairlines
+type: application
+framework:
+  name: SAPUI5
+  version: 1.120.0
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: themelib_sap_horizon
+server:
+  customMiddleware:
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: s4tairlines.s4tairlines
+        ui5Theme: sap_horizon
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - path: /sap
+            url: http://10.0.98.20:8017
+            client: '050'
+            authenticationType: basic
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV
+            metadataPath: ./webapp/localService/S4TOData/metadata.xml
+            mockdataPath: ./webapp/localService/S4TOData/data
+            generateMockData: true
+        annotations:
+          - localPath: ./webapp/localService/S4TOData/ZTEST_FLIGHTS_NV_ANNO_MDL.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZTEST_FLIGHTS_NV_ANNO_MDL',Version='0001')/$value/
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**

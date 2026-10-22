@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZTEST_FLIGHTS_NV_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Scarr" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Carrid"/>
+                </Key>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Carrname" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Airline" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currcode" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Airline Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Url" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToSpfli" Relationship="ZTEST_FLIGHTS_NV_SRV.ScarrToSpfli" FromRole="FromRole_ScarrToSpfli" ToRole="ToRole_ScarrToSpfli"/>
+            </EntityType>
+            <EntityType Name="Spfli" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Carrid"/>
+                    <PropertyRef Name="Connid"/>
+                </Key>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="true" sap:label="Airline"/>
+                <Property Name="PercOccupied" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unicode="false" sap:label="Posti occupati %" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Connid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="true" sap:label="Flight Number"/>
+                <Property Name="AvPrice" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:label="Prezzo Medio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Countryfr" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Country/Reg."/>
+                <Property Name="Cityfrom" Type="Edm.String" MaxLength="20" sap:unicode="true" sap:label="Depart.city"/>
+                <Property Name="Airpfrom" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Dep. airport"/>
+                <Property Name="Countryto" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Country/Reg."/>
+                <Property Name="Cityto" Type="Edm.String" MaxLength="20" sap:unicode="true" sap:label="Arrival city"/>
+                <Property Name="Airpto" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Dest. airport"/>
+                <Property Name="Fltime" Type="Edm.String" MaxLength="6" sap:unicode="true" sap:label="Flight time" sap:semantics="duration"/>
+                <Property Name="Deptime" Type="Edm.Time" Precision="0" sap:unicode="true" sap:label="Departure"/>
+                <Property Name="Arrtime" Type="Edm.Time" Precision="0" sap:unicode="true" sap:label="Arrival Time"/>
+                <Property Name="Distance" Type="Edm.Decimal" Precision="9" Scale="4" sap:unicode="true" sap:unit="Distid" sap:label="Distance"/>
+                <Property Name="Distid" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Distance in" sap:semantics="unit-of-measure"/>
+                <Property Name="Fltype" Type="Edm.String" MaxLength="1" sap:unicode="true" sap:label="Charter"/>
+                <Property Name="Period" Type="Edm.Byte" sap:unicode="true" sap:label="n day(s) later"/>
+                <NavigationProperty Name="ToSflight" Relationship="ZTEST_FLIGHTS_NV_SRV.SpfliToSflight" FromRole="FromRole_SpfliToSflight" ToRole="ToRole_SpfliToSflight"/>
+            </EntityType>
+            <EntityType Name="Sflight" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Carrid"/>
+                    <PropertyRef Name="Connid"/>
+                    <PropertyRef Name="Fldate"/>
+                </Key>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Airline"/>
+                <Property Name="Connid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Flight Number"/>
+                <Property Name="Fldate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3" sap:unicode="false" sap:unit="Currency" sap:label="Airfare"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Airline Currency" sap:semantics="currency-code"/>
+                <Property Name="Planetype" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Plane Type"/>
+                <Property Name="Seatsmax" Type="Edm.Int32" sap:unicode="false" sap:label="Max. Capacity Econ."/>
+                <Property Name="Seatsocc" Type="Edm.Int32" sap:unicode="false" sap:label="Occupied Econ."/>
+                <Property Name="Paymentsum" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:unit="Currency" sap:label="Total"/>
+                <Property Name="SeatsmaxB" Type="Edm.Int32" sap:unicode="false" sap:label="Max. Capacity Bus."/>
+                <Property Name="SeatsoccB" Type="Edm.Int32" sap:unicode="false" sap:label="Occupied Bus."/>
+                <Property Name="SeatsmaxF" Type="Edm.Int32" sap:unicode="false" sap:label="Max. Capacity 1st"/>
+                <Property Name="SeatsoccF" Type="Edm.Int32" sap:unicode="false" sap:label="Occupied 1st"/>
+                <Property Name="PercOccupied" Type="Edm.Decimal" Precision="5" Scale="2" sap:unicode="false" sap:label="Perc Occ."/>
+                <Property Name="AvPrice" Type="Edm.Decimal" Precision="18" Scale="3" sap:unicode="false" sap:label="Av Price"/>
+            </EntityType>
+            <EntityType Name="zFlSbookType" sap:label="Sbook Table" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Carrid"/>
+                    <PropertyRef Name="Connid"/>
+                    <PropertyRef Name="Fldate"/>
+                    <PropertyRef Name="Bookid"/>
+                </Key>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Airline" sap:quickinfo="Airline Code"/>
+                <Property Name="Connid" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Connection Number" sap:quickinfo="Flight Connection Number"/>
+                <Property Name="Fldate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Flight Date" sap:quickinfo="Flight date"/>
+                <Property Name="Bookid" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:label="Booking number"/>
+                <Property Name="Customid" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Customer Number"/>
+                <Property Name="Custtype" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="B/P customer" sap:quickinfo="Customer type"/>
+                <Property Name="Smoker" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Smoker"/>
+                <Property Name="Luggweight" Type="Edm.Decimal" Precision="8" Scale="4" sap:unit="Wunit" sap:label="Luggage Weight" sap:quickinfo="Weight of Luggage"/>
+                <Property Name="Wunit" Type="Edm.String" MaxLength="3" sap:label="Unit of Measurement" sap:quickinfo="Unit of Weight" sap:semantics="unit-of-measure"/>
+                <Property Name="Invoice" Type="Edm.Boolean" sap:label="Invoice flag"/>
+                <Property Name="Class" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Class" sap:quickinfo="Flight Class"/>
+                <Property Name="Forcuram" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Forcurkey" sap:label="Amount" sap:quickinfo="Booking price in foreign currency (dependent on location)"/>
+                <Property Name="Forcurkey" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Paymnt currency" sap:quickinfo="Payment currency" sap:semantics="currency-code"/>
+                <Property Name="Loccuram" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Loccurkey" sap:label="Amount (loc.currncy)" sap:quickinfo="Price of booking in local currency of airline"/>
+                <Property Name="Loccurkey" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Airline Currency" sap:quickinfo="Local currency of airline" sap:semantics="currency-code"/>
+                <Property Name="OrderDate" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Character Field with Length 10" sap:heading=""/>
+                <Property Name="Counter" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Sales office" sap:quickinfo="Number of sales office"/>
+                <Property Name="Agencynum" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Agency No." sap:quickinfo="Travel Agency Number"/>
+                <Property Name="Cancelled" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Cancelation flag"/>
+                <Property Name="Reserved" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Reserved" sap:quickinfo="Reservation flag"/>
+                <Property Name="Passname" Type="Edm.String" MaxLength="25" sap:label="Passenger Name" sap:quickinfo="Name of the Passenger"/>
+                <Property Name="Passform" Type="Edm.String" MaxLength="15" sap:label="Form of address"/>
+                <Property Name="Passbirth" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="DOB of Passenger" sap:quickinfo="Date of Birth of a Passenger"/>
+                <Property Name="Rating" Type="Edm.Byte" sap:label="Flight Rating"/>
+                <NavigationProperty Name="toscustom" Relationship="ZTEST_FLIGHTS_NV_SRV.assoc_5109CFB83B4F10B8FCC4D4B0CC25E286" FromRole="FromRole_assoc_5109CFB83B4F10B8FCC4D4B0CC25E286" ToRole="ToRole_assoc_5109CFB83B4F10B8FCC4D4B0CC25E286"/>
+                <NavigationProperty Name="tosflight" Relationship="ZTEST_FLIGHTS_NV_SRV.assoc_94BD63AAA4ADA0B3426832354A622A4E" FromRole="FromRole_assoc_94BD63AAA4ADA0B3426832354A622A4E" ToRole="ToRole_assoc_94BD63AAA4ADA0B3426832354A622A4E"/>
+            </EntityType>
+            <EntityType Name="zFlScustomType" sap:label="Scustom Table" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerId"/>
+                </Key>
+                <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:label="Customer Number"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="25" sap:label="Customer name"/>
+                <Property Name="Form" Type="Edm.String" MaxLength="15" sap:label="Form of address"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="30" sap:label="Street"/>
+                <Property Name="Postbox" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="PO Box"/>
+                <Property Name="Postcode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code"/>
+                <Property Name="City" Type="Edm.String" MaxLength="25" sap:label="City"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region" sap:quickinfo="Country Code"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region"/>
+                <Property Name="Telephone" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Tel. no." sap:quickinfo="Telephone number of flight customer"/>
+                <Property Name="Custtype" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="B/P customer" sap:quickinfo="Customer type"/>
+                <Property Name="Discount" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Discount (%)" sap:quickinfo="Discount rate"/>
+                <Property Name="Langu" Type="Edm.String" MaxLength="2" sap:label="Language Key"/>
+                <Property Name="Email" Type="Edm.String" MaxLength="40" sap:label="E-Mail Address" sap:quickinfo="Customer e-mail address"/>
+                <Property Name="Webuser" Type="Edm.String" MaxLength="25" sap:label="Web name" sap:quickinfo="Web user name for customer"/>
+            </EntityType>
+            <EntityType Name="zFlSflightType" sap:label="Flight" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AirLineID"/>
+                    <PropertyRef Name="ConnectionID"/>
+                    <PropertyRef Name="FlightDate"/>
+                </Key>
+                <Property Name="AirLineID" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Airline" sap:quickinfo="Airline Code"/>
+                <Property Name="ConnectionID" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Connection Number" sap:quickinfo="Flight Connection Number"/>
+                <Property Name="FlightDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Flight Date" sap:quickinfo="Flight date"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Airfare"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Airline Currency" sap:quickinfo="Local currency of airline" sap:semantics="currency-code"/>
+                <Property Name="Planetype" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Plane Type" sap:quickinfo="Aircraft Type"/>
+                <Property Name="Seatsmax" Type="Edm.Int32" sap:label="Max. Capacity Econ." sap:quickinfo="Maximum Capacity in Economy Class"/>
+                <Property Name="Seatsocc" Type="Edm.Int32" sap:label="Occupied Econ." sap:quickinfo="Occupied Seats in Economy Class"/>
+                <Property Name="Paymentsum" Type="Edm.Decimal" Precision="18" Scale="3" sap:unit="Currency" sap:label="Booking total" sap:quickinfo="Total of current bookings"/>
+                <Property Name="SeatsmaxB" Type="Edm.Int32" sap:label="Max. Capacity Bus." sap:quickinfo="Maximum Capacity in Business Class"/>
+                <Property Name="SeatsoccB" Type="Edm.Int32" sap:label="Occupied Bus." sap:quickinfo="Occupied Seats in Business Class"/>
+                <Property Name="SeatsmaxF" Type="Edm.Int32" sap:label="Max. Capacity 1st" sap:quickinfo="Maximum Capacity in First Class"/>
+                <Property Name="SeatsoccF" Type="Edm.Int32" sap:label="Occupied 1st" sap:quickinfo="Occupied Seats in First Class"/>
+            </EntityType>
+            <EntityType Name="zTcurcType" sap:label="Table TCURCT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currcode"/>
+                </Key>
+                <Property Name="Currcode" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="40" sap:label="Long Text"/>
+            </EntityType>
+            <Association Name="assoc_5109CFB83B4F10B8FCC4D4B0CC25E286" sap:content-version="1">
+                <End Type="ZTEST_FLIGHTS_NV_SRV.zFlSbookType" Multiplicity="1" Role="FromRole_assoc_5109CFB83B4F10B8FCC4D4B0CC25E286"/>
+                <End Type="ZTEST_FLIGHTS_NV_SRV.zFlScustomType" Multiplicity="0..1" Role="ToRole_assoc_5109CFB83B4F10B8FCC4D4B0CC25E286"/>
+            </Association>
+            <Association Name="assoc_94BD63AAA4ADA0B3426832354A622A4E" sap:content-version="1">
+                <End Type="ZTEST_FLIGHTS_NV_SRV.zFlSbookType" Multiplicity="1" Role="FromRole_assoc_94BD63AAA4ADA0B3426832354A622A4E"/>
+                <End Type="ZTEST_FLIGHTS_NV_SRV.zFlSflightType" Multiplicity="1" Role="ToRole_assoc_94BD63AAA4ADA0B3426832354A622A4E"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_94BD63AAA4ADA0B3426832354A622A4E">
+                        <PropertyRef Name="FlightDate"/>
+                        <PropertyRef Name="ConnectionID"/>
+                        <PropertyRef Name="AirLineID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_94BD63AAA4ADA0B3426832354A622A4E">
+                        <PropertyRef Name="Fldate"/>
+                        <PropertyRef Name="Connid"/>
+                        <PropertyRef Name="Carrid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SpfliToSflight" sap:content-version="1">
+                <End Type="ZTEST_FLIGHTS_NV_SRV.Spfli" Multiplicity="*" Role="FromRole_SpfliToSflight"/>
+                <End Type="ZTEST_FLIGHTS_NV_SRV.Sflight" Multiplicity="*" Role="ToRole_SpfliToSflight"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SpfliToSflight">
+                        <PropertyRef Name="Carrid"/>
+                        <PropertyRef Name="Connid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SpfliToSflight">
+                        <PropertyRef Name="Carrid"/>
+                        <PropertyRef Name="Connid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ScarrToSpfli" sap:content-version="1">
+                <End Type="ZTEST_FLIGHTS_NV_SRV.Scarr" Multiplicity="*" Role="FromRole_ScarrToSpfli"/>
+                <End Type="ZTEST_FLIGHTS_NV_SRV.Spfli" Multiplicity="*" Role="ToRole_ScarrToSpfli"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ScarrToSpfli">
+                        <PropertyRef Name="Carrid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ScarrToSpfli">
+                        <PropertyRef Name="Carrid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZTEST_FLIGHTS_NV_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zFlSbook" EntityType="ZTEST_FLIGHTS_NV_SRV.zFlSbookType" sap:content-version="1"/>
+                <EntitySet Name="zFlScustom" EntityType="ZTEST_FLIGHTS_NV_SRV.zFlScustomType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="zFlSflight" EntityType="ZTEST_FLIGHTS_NV_SRV.zFlSflightType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zTcurc" EntityType="ZTEST_FLIGHTS_NV_SRV.zTcurcType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ScarrSet" EntityType="ZTEST_FLIGHTS_NV_SRV.Scarr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SpfliSet" EntityType="ZTEST_FLIGHTS_NV_SRV.Spfli" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SflightSet" EntityType="ZTEST_FLIGHTS_NV_SRV.Sflight" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_94BD63AAA4ADA0B3426832354A622A4E" Association="ZTEST_FLIGHTS_NV_SRV.assoc_94BD63AAA4ADA0B3426832354A622A4E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zFlSbook" Role="FromRole_assoc_94BD63AAA4ADA0B3426832354A622A4E"/>
+                    <End EntitySet="zFlSflight" Role="ToRole_assoc_94BD63AAA4ADA0B3426832354A622A4E"/>
+                </AssociationSet>
+                <AssociationSet Name="SpfliToSflightSet" Association="ZTEST_FLIGHTS_NV_SRV.SpfliToSflight" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SpfliSet" Role="FromRole_SpfliToSflight"/>
+                    <End EntitySet="SflightSet" Role="ToRole_SpfliToSflight"/>
+                </AssociationSet>
+                <AssociationSet Name="AirlineToFlightsSet" Association="ZTEST_FLIGHTS_NV_SRV.ScarrToSpfli" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ScarrSet" Role="FromRole_ScarrToSpfli"/>
+                    <End EntitySet="SpfliSet" Role="ToRole_ScarrToSpfli"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5109CFB83B4F10B8FCC4D4B0CC25E286" Association="ZTEST_FLIGHTS_NV_SRV.assoc_5109CFB83B4F10B8FCC4D4B0CC25E286" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="zFlSbook" Role="FromRole_assoc_5109CFB83B4F10B8FCC4D4B0CC25E286"/>
+                    <End EntitySet="zFlScustom" Role="ToRole_assoc_5109CFB83B4F10B8FCC4D4B0CC25E286"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZTEST_FLIGHTS_NV_SRV.ZTEST_FLIGHTS_NV_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZTEST_FLIGHTS_NV_SRV.ZTEST_FLIGHTS_NV_SRV_Entities/zFlSbook" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="toscustom"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="tosflight"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZTEST_FLIGHTS_NV_SRV.ZTEST_FLIGHTS_NV_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="/sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="/sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
