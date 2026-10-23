@@ -8,3 +8,7 @@ mta-*
 resources
 archive.zip
 .*_mta_build_tmp
+ui5.yaml
+ui5-local.yaml
+ui5-mock.yaml
+ui5-local.yaml
