@@ -16,17 +16,6 @@
       "toolsId": "599fa33a-60d5-40c7-b3aa-d87092c4ae57"
     },
     "dataSources": {
-      "S4TOData": {
-        "uri": "/sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV/",
-        "type": "OData",
-        "settings": {
-          "annotations": [
-            "ZTEST_FLIGHTS_NV_ANNO_MDL"
-          ],
-          "localUri": "localService/S4TOData/metadata.xml",
-          "odataVersion": "2.0"
-        }
-      },
       "protoModel": {
         "uri": "model/Models.json",
         "type": "JSON"
@@ -35,7 +24,18 @@
         "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZTEST_FLIGHTS_NV_ANNO_MDL',Version='0001')/$value/",
         "type": "ODataAnnotation",
         "settings": {
-          "localUri": "localService/S4TOData/ZTEST_FLIGHTS_NV_ANNO_MDL.xml"
+          "localUri": "localService/mainService/ZTEST_FLIGHTS_NV_ANNO_MDL.xml"
+        }
+      },
+      "S4TOData": {
+        "uri": "/sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZTEST_FLIGHTS_NV_ANNO_MDL"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
         }
       }
     },
@@ -73,9 +73,10 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.120.0",
+      "minUI5Version": "1.153.0",
       "libs": {
         "sap.m": {},
+        "sap.f": {},
         "sap.ui.core": {}
       }
     },
@@ -90,15 +91,15 @@
           "bundleName": "s4tairlines.s4tairlines.i18n.i18n"
         }
       },
-      "S4TOData": {
-        "dataSource": "S4TOData",
-        "preload": true,
-        "settings": {}
-      },
       "protoModel": {
         "type": "sap.ui.model.json.JSONModel",
         "dataSource": "protoModel",
         "preload": true
+      },
+      "S4TOData": {
+        "dataSource": "S4TOData",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {

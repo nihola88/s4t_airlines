@@ -35,7 +35,12 @@ return BaseController.extend("s4tairlines.s4tairlines.controller.App", {
       default:
       }
       
-      
+      let vizProp = { 
+                        general: { background: { color: '#fff9e7' } },
+                        plotArea: { background: { color: '#fdebb5' } },
+		                title: { text: this.getOwnerComponent().getModel("i18n").getResourceBundle().getText("ChartTitle") }
+                    };
+       this.getView().setModel(new JSONModel(vizProp), "vizProp");
 
   },
   onBeforeRendering() {
@@ -68,7 +73,7 @@ return BaseController.extend("s4tairlines.s4tairlines.controller.App", {
               },
               success: function (S4TOData) {
                   that.getOwnerComponent().setModel(new JSONModel(S4TOData.results), "SflightSet");
-                  that.getView().byId("vizFrame").setModel(new JSONModel(S4TOData.results));
+                  that.getView().byId("vizFrame")?.setModel(new JSONModel(S4TOData.results));
                   that.getView().setBusy(false);
               },
               error: function (error) {
@@ -80,9 +85,12 @@ return BaseController.extend("s4tairlines.s4tairlines.controller.App", {
 
   },
   onVizFrameLoaded(evt){
-    var oFrameProp = this.byId("vizFrame").getVizProperties();
-    oFrameProp.title.text = this.getView().getModel("i18n").getResourceBundle().getText("ChartTitle");
-    this.byId("vizFrame").setVizProperties(oFrameProp);
+    if (!this.vizFrameLoaded){
+        this.vizFrameLoaded = true;
+        let oFrameProp = this.byId("vizFrame").getVizProperties();
+        oFrameProp.title.text = this.getView().getModel("i18n").getResourceBundle().getText("ChartTitle");
+        this.byId("vizFrame").setVizProperties(oFrameProp);
+    }
   },
   
   onPress(evt) {

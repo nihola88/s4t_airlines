@@ -6,7 +6,7 @@ metadata:
 type: application
 framework:
   name: SAPUI5
-  version: 1.120.0
+  version: 1.153.0
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -28,9 +28,13 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
         backend:
           - path: /sap
+            url: http://10.0.98.20:8017
+            client: '050'
+            authenticationType: basic
+          - path: /sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV/
             url: http://10.0.98.20:8017
             client: '050'
             authenticationType: basic
@@ -40,11 +44,11 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV
-            metadataPath: ./webapp/localService/S4TOData/metadata.xml
-            mockdataPath: ./webapp/localService/S4TOData/data
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations:
-          - localPath: ./webapp/localService/S4TOData/ZTEST_FLIGHTS_NV_ANNO_MDL.xml
+          - localPath: ./webapp/localService/mainService/ZTEST_FLIGHTS_NV_ANNO_MDL.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZTEST_FLIGHTS_NV_ANNO_MDL',Version='0001')/$value/
 builder:
   resources:

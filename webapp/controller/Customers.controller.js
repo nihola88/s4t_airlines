@@ -11,8 +11,9 @@ sap.ui.define([
         onInit(evt){
           //this.oData2Model = new ODataModel("https://s4demo.horsa.it:44301/sap/opu/odata/sap/ZTEST_FLIGHTS_NV_SRV",{json: false}); 
           this.oData2Model = this.getOwnerComponent().getModel("S4TOData");
-          this.getView().byId("smartFilterBar").setModel(this.oData2Model);
-          this.getView().byId("smartFilterTab").setModel(this.oData2Model);
+          this.getView().setModel(this.oData2Model,"S4TOData");
+          this.getView().byId("smartFilterBar")?.setModel(this.oData2Model);
+          this.getView().byId("smartFilterTab")?.setModel(this.oData2Model);
         },
         onBeforeRendering(){
           /*var that = this;
@@ -42,15 +43,12 @@ sap.ui.define([
         //set bball model
             fetch("https://api.genderize.io?name=nicola", requestOptions)
             .then(response => {
-              debugger;
               response.text()
             })
             .then(result =>  {
-              debugger;  
               model2.setData(result)
             })
             .catch(error => {
-              debugger;
               console.log('error', error)
             });
         }

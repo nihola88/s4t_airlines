@@ -50,10 +50,10 @@
                     <PropertyRef Name="Carrid"/>
                     <PropertyRef Name="Connid"/>
                 </Key>
-                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="true" sap:label="Airline"/>
                 <Property Name="PercOccupied" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unicode="false" sap:label="Posti occupati %" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Connid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="true" sap:label="Flight Number"/>
+                <Property Name="Carrid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="true" sap:label="Airline"/>
                 <Property Name="AvPrice" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:unicode="false" sap:label="Prezzo Medio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Connid" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="true" sap:label="Flight Number"/>
                 <Property Name="Countryfr" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Country/Reg."/>
                 <Property Name="Cityfrom" Type="Edm.String" MaxLength="20" sap:unicode="true" sap:label="Depart.city"/>
                 <Property Name="Airpfrom" Type="Edm.String" MaxLength="3" sap:unicode="true" sap:label="Dep. airport"/>
@@ -136,7 +136,7 @@
                 <Property Name="Postbox" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="PO Box"/>
                 <Property Name="Postcode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code"/>
                 <Property Name="City" Type="Edm.String" MaxLength="25" sap:label="City"/>
-                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region" sap:quickinfo="Country Code"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country/Region" sap:quickinfo="Country Code" sap:value-list="standard"/>
                 <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region"/>
                 <Property Name="Telephone" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Tel. no." sap:quickinfo="Telephone number of flight customer"/>
                 <Property Name="Custtype" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="B/P customer" sap:quickinfo="Customer type"/>
@@ -164,6 +164,13 @@
                 <Property Name="SeatsoccB" Type="Edm.Int32" sap:label="Occupied Bus." sap:quickinfo="Occupied Seats in Business Class"/>
                 <Property Name="SeatsmaxF" Type="Edm.Int32" sap:label="Max. Capacity 1st" sap:quickinfo="Maximum Capacity in First Class"/>
                 <Property Name="SeatsoccF" Type="Edm.Int32" sap:label="Occupied 1st" sap:quickinfo="Occupied Seats in First Class"/>
+            </EntityType>
+            <EntityType Name="zT005Type" sap:label="Table T005" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Text" sap:label="Country/Region Key"/>
+                <Property Name="Text" Type="Edm.String" MaxLength="15" sap:label="Country/Region Name" sap:quickinfo="Name of Country/Region (Short)"/>
             </EntityType>
             <EntityType Name="zTcurcType" sap:label="Table TCURCT" sap:content-version="1">
                 <Key>
@@ -222,6 +229,7 @@
                 <EntitySet Name="zFlSbook" EntityType="ZTEST_FLIGHTS_NV_SRV.zFlSbookType" sap:content-version="1"/>
                 <EntitySet Name="zFlScustom" EntityType="ZTEST_FLIGHTS_NV_SRV.zFlScustomType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
                 <EntitySet Name="zFlSflight" EntityType="ZTEST_FLIGHTS_NV_SRV.zFlSflightType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zT005" EntityType="ZTEST_FLIGHTS_NV_SRV.zT005Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
                 <EntitySet Name="zTcurc" EntityType="ZTEST_FLIGHTS_NV_SRV.zTcurcType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
                 <EntitySet Name="ScarrSet" EntityType="ZTEST_FLIGHTS_NV_SRV.Scarr" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="SpfliSet" EntityType="ZTEST_FLIGHTS_NV_SRV.Spfli" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
@@ -244,6 +252,26 @@
                 </AssociationSet>
             </EntityContainer>
             <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZTEST_FLIGHTS_NV_SRV.zFlScustomType/Country" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Table T005"/>
+                        <PropertyValue Property="CollectionPath" String="zT005"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Country"/>
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
             <Annotations Target="ZTEST_FLIGHTS_NV_SRV.ZTEST_FLIGHTS_NV_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
             </Annotations>

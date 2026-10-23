@@ -1,4 +1,4 @@
-<mvc:View xmlns:form="sap.ui.layout.form"
+<mvc:View xmlns:feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="sap.viz.ui5.data" xmlns:controls="sap.viz.ui5.controls" xmlns:form="sap.ui.layout.form"
           xmlns:f="sap.f"
           xmlns:layout="sap.ui.layout"
           xmlns:statusindicator="sap.suite.ui.commons.statusindicator"
@@ -51,15 +51,12 @@
 					<ImageContent src="sap-icon://person-placeholder"/>
 				</TileContent>
 			</GenericTile>
-			<!--<commons:ChartContainer showFullScreen="false" title="{i18n>ChartTitle}" autoAdjustHeight="true"  >
+			<commons:ChartContainer showFullScreen="false" title="{i18n>ChartTitle}" autoAdjustHeight="true"  >
 				<commons:content>
 					<commons:ChartContainerContent icon="sap-icon://flight" title="{i18n>ChartTitle}" >
 						<commons:content >
-							<controls:VizFrame id="vizFrame"  renderComplete="onVizFrameLoaded"
-											   vizProperties="{ 
-                                                        general: { background: { color: '#fff9e7' } },
-                                                        plotArea: { background: { color: '#fdebb5' } }
-                                                                   }"
+							<controls:VizFrame id="vizFrame"
+											   vizProperties="{vizProp>/}"
                                                 vizScales="{
                                                         color: {
                                                                 palette: ['#000000', '#F5BCB4', '#efc76c', '#EACF5E', '#F9AD79', '#D16A7C', '#8873A2',
@@ -116,7 +113,7 @@
 						</commons:content>
 					</commons:ChartContainerContent>
 				</commons:content>
-			</commons:ChartContainer>-->
+			</commons:ChartContainer>
 		</Page>
 	</App>
 </mvc:View>
