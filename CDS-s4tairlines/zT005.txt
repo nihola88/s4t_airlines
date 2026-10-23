@@ -1,0 +1,20 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Table T005'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #C,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+@Search.searchable: true
+define view entity zT005
+  as select from t005t
+{
+      @Search.defaultSearchElement: true
+      @ObjectModel.text.element: [ 'Text' ]
+  key cast(land1 as land1 preserving type ) as Country,
+      landx                                 as Text
+}
+where
+  spras = $session.system_language
